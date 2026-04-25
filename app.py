@@ -1,0 +1,115 @@
+import streamlit as st
+# Kode untuk mengubah warna latar belakang
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #FFF5F5;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+from PIL import Image
+
+# Pengaturan halaman
+st.set_page_config(page_title="Memori Kita", page_icon="❤️")
+
+# --- JUDUL ---
+st.title("❤️ PERJALANAN CINTA KURCACIII UNTUK ABULLL ❤️")
+st.markdown("<h3 style='text-align: center; color: #D81B60;'>✨ ✨ ✨ ✨ ✨ ✨ ✨</h3>", unsafe_allow_html=True)
+
+st.markdown("<marquee style='color: #D81B60; font-weight: bold;'>I Love You More Than Yesterday... and I Will Love You More Tomorrow...</marquee>", unsafe_allow_html=True)
+st.write("Special for you.")
+
+st.divider()
+
+# --- FOTO 1 ---
+col1, col2 = st.columns([1, 1])
+with col1:
+    try:
+        img1 = Image.open("foto1.jpg")
+        st.image(img1, use_container_width=True)
+    except:
+        st.error("Foto 1 gak ketemu, cek lagi namanya ya!")
+
+with col2:
+    st.subheader("Momen Berharga")
+    st.write("Ini kita habis kejar-kejaran sampe capeee, bahagiaaa bangetttt waktu ituuu. Di sini aku sadar kalo cuma kamu yang bisa bikin aku bahagia dan bisa ketawa lepass.")
+
+st.divider()
+
+# --- FOTO 2 ---
+col3, col4 = st.columns([1, 1])
+with col3:
+    st.subheader("Momen Manis Lainnya")
+    st.write("Kalo yang ini kita habis hujan-hujanan naik motor keliling kota solo. Tau ga sayang? itu first experience aku keliling kota solo dengan orang yang palingg spesialll. Makasiii yaa sayanggg udah mewarnaiii hidup akuuu.")
+
+with col4:
+    try:
+        # Pastikan kamu punya file bernama foto2.jpg di folder yang sama
+        img2 = Image.open("foto2.jpg")
+        st.image(img2, use_container_width=True)
+    except:
+        st.error("Foto 2 gak ketemu, pastikan ada file foto2.jpg di folder")
+
+
+st.divider()
+st.subheader("💡 Kenapa aku sayang Abulll?")
+
+tab1, tab2, tab3 = st.tabs(["Sifatmu", "Sikapmu", "Random"])
+
+with tab1:
+    st.write("✨ **Sabar:** Makasiii yaaa udah sabar banget ngadepin mood aku yang naik turun.")
+with tab2:
+    st.write("🍰 **Gentleman:** Aku sukaa liat kamu berusaha berubah sayanggg, semangattt yaa berubah jadi lebih baiknyaaa.")
+with tab3:
+    st.write("💘 **Nyaman:** Cuma sama kamu aku bisa jadi diriku sendiri yang paling aneh tanpa takut dinilai.")
+
+st.divider()
+# --- VIDEO ---
+st.subheader("🎬 Video Kita")
+try:
+    video_file = open("video_kita.mp4", "rb")
+    video_bytes = video_file.read()
+    st.video(video_bytes)
+    st.write("Video random kitaa, aku sering liat video ini saat aku kangennnn, lucuu bangett kannn video kitaa? pastii lucuu dong hehe.")
+except:
+    st.error("Video gak ketemu, pastikan namanya video_kita.mp4")
+
+st.divider()
+
+# --- TOMBOL KEJUTAN ---
+if st.button("Klik kalau kamu sayang akuuu"):
+    st.balloons()
+    st.snow()
+    st.success("I LOVE YOUU ABULLLL! KAPAN NIKAHIN AKU NIH?? ❤️✨")
+
+    st.divider()
+
+# 1. Widget "Seberapa Sayang" (Slider Lucu)
+st.subheader("📊 Love Meter")
+love_level = st.select_slider(
+    'Seberapa sayang kamu sama aku hari ini?',
+    options=['Sayang banget', 'Sayang pol', 'Sayang bangettt', 'Gak bisa lepas!', 'Infinity & Beyond! ❤️']
+)
+st.write(f"Wah, makasiii yaaa udah sayang aku sampe level: **{love_level}**")
+
+# 2. Kotak Catatan Harapan (Expander)
+with st.expander("✨ Harapan Aku Buat Kita"):
+    st.write("""
+    - Semoga kita makin sabar satu sama lain.
+    - Semoga makin banyak tempat yang kita kunjungi bareng.
+    - Dan semoga 'kapan nikah'-nya segera terwujud! Amin. 🤲
+    """)
+
+#3. Footer Cantik di bawah
+st.markdown(
+    """
+    <br><br>
+    <div style="text-align: center; color: #D81B60; font-size: 12px;">
+        Made with ❤️ by Kurcaciii | 2026
+    </div>
+    """,
+    unsafe_allow_html=True
+)
