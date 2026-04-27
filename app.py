@@ -97,7 +97,7 @@ if tombol:
         with tab2:
                 st.write("🍰 **Gentleman:** Aku sukaa liat kamu berusaha berubah sayanggg, semangattt yaa berubah jadi lebih baiknyaaa.")
                 with tab3:
-                st.write("💘 **Nyaman:** Cuma sama kamu aku bisa jadi diriku sendiri yang paling aneh tanpa takut dinilai.")
+                    st.write("💘 **Nyaman:** Cuma sama kamu aku bisa jadi diriku sendiri yang paling aneh tanpa takut dinilai.")
 
         st.divider()
         # --- VIDEO ---
