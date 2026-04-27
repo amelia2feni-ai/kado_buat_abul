@@ -23,13 +23,13 @@ st.markdown("<marquee style='color: #D81B60; font-weight: bold;'>I Love You More
 st.write("Special for you.")
 
 password = st.text_input("Masukkan tanggal jadian kita (DDMMYY) untuk masuk:", type="password")
+tombol = st.button("Masuk")
 
-if password == "080625": # Ganti dengan tanggal kalian
-    st.success("Akses diterima! Halooo Gantengggg ❤️")
-    # Masukkan semua kode kontenmu di sini (di dalam blok if)
-else:
-    st.warning("Eits, masa lupa? Coba diingat lagi yaa.")
-    st.stop() # Menghentikan kode agar konten di bawah tidak muncul
+if tombol:
+    if password == "080625":
+        st.success("Akses diterimaaaa! Halooo Gantengggg ❤️")
+    else:
+        st.warning("Eits, masa lupa? Coba diingat lagi yaa.")
 
 st.divider()
 
@@ -48,15 +48,20 @@ with col2:
 
 import datetime
 
-# Ambil jam sekarang
-jam = datetime.datetime.now().hour
+import datetime
 
-if jam < 12:
-    ucapan = "Selamat Pagiiii sayangggg, Semangat Hari Ininya! ☀️"
-elif jam < 18:
+# Mengatur selisih waktu (WIB adalah UTC+7)
+jam_utc = datetime.datetime.now().hour
+jam_wib = (jam_utc + 7) % 24
+
+if 4 <= jam_wib < 11:
+    ucapan = "Selamat Pagi sayanggg, Semangat Hari Ininya! ☀️"
+elif 11 <= jam_wib < 15:
     ucapan = "Selamat Sianggg sayanggg, Jangan Lupa Mammm Yaaaa! 🍱"
+elif 15 <= jam_wib < 18:
+    ucapan = "Selamat Soreee sayanggg, Mandi gihhh biar seger! ☕"
 else:
-    ucapan = "Selamat Malammm sayangggg, Jangan Lupa Istirahat Yaaaa! ✨"
+    ucapan = "Selamat Malammm sayanggg, Jangan Lupa Bobo Yang Nyenyak Yaaaa! ✨"
 
 st.write(f"### {ucapan}")
 
