@@ -79,12 +79,12 @@ if tombol:
                 st.write("Kalo yang ini kita habis hujan-hujanan naik motor keliling kota solo. Tau ga sayang? itu first experience aku keliling kota solo dengan orang yang palingg spesialll. Makasiii yaa sayanggg udah mewarnaiii hidup akuuu.")
 
         with col4:
-        try:
-            # Pastikan kamu punya file bernama foto2.jpg di folder yang sama
-            img2 = Image.open("foto2.jpg")
-            st.image(img2, use_container_width=True)
-        except:
-            st.error("Foto 2 gak ketemu, pastikan ada file foto2.jpg di folder")
+            try:
+                # Pastikan kamu punya file bernama foto2.jpg di folder yang sama
+                img2 = Image.open("foto2.jpg")
+                st.image(img2, use_container_width=True)
+            except:
+                st.error("Foto 2 gak ketemu, pastikan ada file foto2.jpg di folder")
 
 
         st.divider()
@@ -156,5 +156,5 @@ if tombol:
                             """,
                             unsafe_allow_html=True
                         )
-        else:
+    else:
         st.warning("Eits, masa lupa? Coba diingat lagi yaa.")
