@@ -22,6 +22,15 @@ st.markdown("<h3 style='text-align: center; color: #D81B60;'>✨ ✨ ✨ ✨ ✨
 st.markdown("<marquee style='color: #D81B60; font-weight: bold;'>I Love You More Than Yesterday... and I Will Love You More Tomorrow...</marquee>", unsafe_allow_html=True)
 st.write("Special for you.")
 
+password = st.text_input("Masukkan tanggal jadian kita (DDMMYY) untuk masuk:", type="password")
+
+if password == "080625": # Ganti dengan tanggal kalian
+    st.success("Akses diterima! Halooo Gantengggg ❤️")
+    # Masukkan semua kode kontenmu di sini (di dalam blok if)
+else:
+    st.warning("Eits, masa lupa? Coba diingat lagi yaa.")
+    st.stop() # Menghentikan kode agar konten di bawah tidak muncul
+
 st.divider()
 
 # --- FOTO 1 ---
@@ -36,6 +45,20 @@ with col1:
 with col2:
     st.subheader("Momen Berharga")
     st.write("Ini kita habis kejar-kejaran sampe capeee, bahagiaaa bangetttt waktu ituuu. Di sini aku sadar kalo cuma kamu yang bisa bikin aku bahagia dan bisa ketawa lepass.")
+
+import datetime
+
+# Ambil jam sekarang
+jam = datetime.datetime.now().hour
+
+if jam < 12:
+    ucapan = "Selamat Pagiiii sayangggg, Semangat Hari Ininya! ☀️"
+elif jam < 18:
+    ucapan = "Selamat Sianggg sayanggg, Jangan Lupa Mammm Yaaaa! 🍱"
+else:
+    ucapan = "Selamat Malammm sayangggg, Jangan Lupa Istirahat Yaaaa! ✨"
+
+st.write(f"### {ucapan}")
 
 st.divider()
 
