@@ -118,17 +118,18 @@ else:
     # --- VIDEO ---
     st.subheader("🎬 Video Kita")
     
-    # Video 1
-    try:
-        st.video("video_kita.mp4")
-        st.write("Video ini spesial banget menurutku, karena disini aku cantikkk bangettt hehe, ahh jadi maluuu.")
-    except:
-        st.error("Video gak ketemu, pastikan namanya video_kita.mp4")
+    daftar_video = [
+        {"file": "video_kita.mp4", "caption": "Video ini spesial banget menurutku, karena disini aku cantikkk bangettt hehe, ahh jadi maluuu."},
+        {"file": "video_kita3.mp4", "caption": "Momen lucu kita pas lagi jalan-jalan bareng, kangen banget masa ini!"},
+        {"file": "video_kita4.mp4", "caption": "Ini waktu kita ketawa-ketawa bareng, momen sederhana yang selalu bikin kangen."},
+        {"file": "video_kita5.mp4", "caption": "Kenangan manis lainnya yang gak bakal pernah aku lupain 💖"}
+    ]
 
-    # Video Tambahan (Video 3, 4, 5 jika ada)
-    for v_name in ["video_kita3.mp4", "video_kita4.mp4", "video_kita5.mp4"]:
+    for item in daftar_video:
         try:
-            st.video(v_name)
+            st.video(item["file"])
+            st.write(item["caption"])
+            st.write("")
         except:
             pass
 
