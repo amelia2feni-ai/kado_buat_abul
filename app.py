@@ -17,18 +17,34 @@ from PIL import Image
 st.set_page_config(page_title="Memori Kita", page_icon="❤️")
 
 # --- JUDUL ---
-st.title("❤️ PERJALANAN CINTA KURCACIII UNTUK ABULLL ❤️")
-st.markdown("<h3 style='text-align: center; color: #D81B60;'>✨ ✨ ✨ ✨ ✨ ✨ ✨</h3>", unsafe_allow_html=True)
+# 1. Simpan status login
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
 
-st.markdown("<marquee style='color: #D81B60; font-weight: bold;'>I Love You More Than Yesterday... and I Will Love You More Tomorrow...</marquee>", unsafe_allow_html=True)
-st.write("Special for you.")
+# 2. Jika BELUM login, tampilkan form login saja
+if not st.session_state.logged_in:
+    st.title("💖 PERJALANAN CINTA KURCACIII UNTUK ABULLL 💖")
+    st.markdown("<h3 style='text-align: center; color: #D81B60;'>✨ ✨ ✨ ✨ ✨ ✨ ✨</h3>", unsafe_allow_html=True)
+    st.markdown("<marquee style='color: #D81B60; font-weight: bold;'>I Love You More Than Yesterday... and I Will Love You More Tomorrow...</marquee>", unsafe_allow_html=True)
+    st.write("Special for you.")
 
-password = st.text_input("Masukkan tanggal jadian kita (DDMMYY) untuk masuk:", type="password")
-tombol = st.button("Masuk")
+    password = st.text_input("Masukkan tanggal jadian kita (DDMMYY) untuk masuk:", type="password")
+    
+    if st.button("Masuk"):
+        if password == "080625":
+            st.session_state.logged_in = True
+            st.rerun()  # Refresh halaman agar langsung masuk ke konten utama
+        else:
+            st.warning("Eits, masa lupa? coba diingat lagi yaa.")
 
-if tombol:
-    if password == "080625":
-        st.success("Akses diterimaaaa! Halooo Gantengggg ❤️")
+# 3. Jika SUDAH login, tampilkan seluruh isi web & game kamu
+else:
+    st.success("Akses diterimaaaa! Halooo Gantengggg 💖")
+    
+    # -------------------------------------------------------------
+    # PINDAHKAN SELURUH KODE SISANYA (Jam, Foto, Game, dll) KE SINI
+    # (Pastikan diberi Indentasi / Tab ke dalam)
+    # -------------------------------------------------------------
     
          # Mengatur selisih waktu (WIB adalah UTC+7)
         jam_utc = datetime.datetime.now().hour
@@ -61,8 +77,8 @@ if tombol:
                 st.write("Ini kita habis kejar-kejaran sampe capeee, bahagiaaa bangetttt waktu ituuu. Di sini aku sadar kalo cuma kamu yang bisa bikin aku bahagia dan bisa ketawa lepass.")
 
                     
-        st.subheader("🎯 Game: Tangkap Sayangkuuuu")
-        if "count" not in st.session_state:
+            st.subheader("🎯 Game: Tangkap Sayangkuuuu")
+            if "count" not in st.session_state:
                 st.session_state.count = 0
 
         if st.button("Klik di sini kalau kamu sayang aku!"):
@@ -109,6 +125,28 @@ if tombol:
             st.write("Video random kitaa, aku sering liat video ini saat aku kangennnn, lucuu bangett kannn video kitaa? pastii lucuu dong hehe.")
         except:
             st.error("Video gak ketemu, pastikan namanya video_kita.mp4")
+        try:
+            video_file = open("video_kita3.mp4", "rb")
+            video_bytes = video_file.read()
+            st.video(video_bytes)
+            st.write("Ini kan yang kata kamu lucuu itu, inget yaa ini kita main di Kampung Batik Kahuman Solo, kota Solo banyak kenangannyaaa tentang kitaa.")
+        except:
+            st.error("Video gak ketemu, pastikan namanya video_kita.mp4")
+        try:
+            video_file = open("video_kita4.mp4", "rb")
+            video_bytes = video_file.read()
+            st.video(video_bytes)
+            st.write("Ini waktu kita beli kebab waktu mau buka puasa, karna main sebelumnya belum jadi beli kebab terus aku ngambek terus mas janji buat beliin kebab banyakkkk, makasiiii kebabnyaa enakkkk.")
+        except:
+            st.error("Video gak ketemu, pastikan namanya video_kita.mp4")
+        try:
+            video_file = open("video_kita5.mp4", "rb")
+            video_bytes = video_file.read()
+            st.video(video_bytes)
+            st.write("Video ini spesial banget menurutku, karena disini aku cantikkk bangetttt hehe, ahh jadi maluuu.")
+        except:
+            st.error("Video gak ketemu, pastikan namanya video_kita.mp4")
+
 
         st.divider()
 
@@ -124,11 +162,11 @@ if tombol:
         love_score = st.slider("Seberapa sayang kamu sama aku hari ini?", 0, 100, 80)
 
         if love_score > 90:
-            st.success(f"Wah, {love_score}%! Aku jauh lebih sayang kamu! ❤️")
-        elif love_score > 50:
-            st.info(f"Cuma {love_score}%? Tambahin lagi dong! 😋")
-        else:
-            st.warning("Kok dikit banget? Sini aku manjain dulu biar naik! 🥺") 
+                st.success(f"Wah, {love_score}%! Aku jauh lebih sayang kamu! ❤️")
+            elif love_score > 50:
+                st.info(f"Cuma {love_score}%? Tambahin lagi dong! 😋")
+            else:
+                st.warning("Kok dikit banget? Sini aku manjain dulu biar naik! 🥺") 
 
         # 2. Kotak Catatan Harapan (Expander)
         with st.expander("✨ Harapan Aku Buat Kita"):
@@ -145,6 +183,33 @@ if tombol:
         sisa_hari = (tgl_penting - hari_ini).days
 
         st.metric(label="Menuju Hari Spesial Kita", value=f"{sisa_hari} Hari Lagi")
+    
+        st.divider()
+
+        # =========================================================
+        # PESAN PERPISAHAN (BAGIAN PALING BAWAH)
+        # =========================================================
+        st.subheader("🕊️ Catatan Terakhir")
+        
+        st.markdown("""
+        <div class='farewell-box'>
+            <h3>Untuk Abull,</h3>
+            <p>Terima kasih ya sudah menyempatkan waktu untuk melihat kembali semua kenangan dan momen manis yang pernah kita lewati di atas.</p>
+            <p>Setiap perjalanan pasti ada babak akhirnya, dan cerita kita ternyata harus berhenti di sini. Aku menulis ini tanpa rasa benci, melainkan dengan rasa terima kasih yang tulus. Terima kasih sudah pernah hadir dan memberi banyak pelajaran berharga.</p>
+            <p>Semoga di langkah selanjutnya, kamu selalu dikelilingi kebahagiaan dan bisa mencapai semua hal yang kamu impikan. Sukses dan bahagia selalu ya, Abull.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        with st.expander("Klik untuk pesan penutup"):
+            st.write("""
+            Maaf ya kalau selama kita bersama ada kata atau perbuatanku yang pernah melukai hatimu. 
+            Jaga diri baik-baik ya di sana.
+            
+            *Pamit,*  
+            **Kurcaci**
+            """)
+
+        st.caption("✨ *Setiap akhir adalah awal yang baru di tempat lain.*")
                     
         #3. Footer Cantik di bawah
         st.markdown(
@@ -156,5 +221,3 @@ if tombol:
                             """,
                             unsafe_allow_html=True
                         )
-    else:
-        st.warning("Eits, masa lupa? Coba diingat lagi yaa.")
