@@ -181,7 +181,7 @@ else:
         Jaga diri baik-baik ya di sana.
         
         *Pamit,*  
-        **Aku**
+        **Kurcaciii**
         """)
 
     st.caption("✨ *Setiap akhir adalah awal yang baru di tempat lain.*")
